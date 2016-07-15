@@ -13,3 +13,8 @@ ul li {
 label {
   margin-top: 5px;
 }
+
+.jumbotron {
+  height: 100px;
+  padding-top: 5px;
+}

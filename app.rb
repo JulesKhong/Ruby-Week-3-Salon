@@ -15,7 +15,7 @@ end
 
 get('/stylist/:id') do
   @stylist = Stylist.find(params.fetch('id').to_i)
-  @clients = Client.all()
+  @clients = @stylist.clients
   # @myclients = @stylist.clients
   erb(:stylist)
 end
@@ -23,6 +23,14 @@ end
 delete('/stylist/:id') do
   @stylist = Stylist.find(params.fetch('id').to_i)
   @stylist.delete
+  @stylists = Stylist.all
+  @clients = Client.all
+  erb(:index)
+end
+
+delete('/client/:id') do
+  @client = Client.find(params.fetch('id').to_i)
+  @client.delete
   @stylists = Stylist.all
   @clients = Client.all
   erb(:index)
