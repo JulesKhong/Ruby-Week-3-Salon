@@ -16,7 +16,7 @@ describe(Stylist) do
     end
   end
 
-  describe('save') do
+  describe('#save') do
     it("saves a stylist to the database") do
       stylist = Stylist.new({:id => nil, :name => "Leon"})
       stylist.save()
@@ -51,7 +51,7 @@ describe(Stylist) do
       expect(stylist.name).to(eq("Sona"))
     end
   end
-  # 
+  #
   # describe('#clients') do
   #   it("returns a list of clients for a particular stylist") do
   #     stylist = Stylist.new({:id => nil, :name => "Venice"})

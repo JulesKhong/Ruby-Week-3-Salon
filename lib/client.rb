@@ -32,4 +32,28 @@ class Client
     @id = result.first.fetch('id').to_i
   end
 
+  define_singleton_method(:find) do |id|
+    result = DB.exec("SELECT * FROM clients WHERE id = #{id};")
+    name = result.first.fetch("name")
+    describe = result.first.fetch("describe")
+    stylist_id = result.first.fetch("stylist_id")
+    Client.new({:id => id, :name => name, :describe => describe, :stylist_id => stylist_id })
+  end
+
+  define_method(:delete) do
+    DB.exec("DELETE FROM clients WHERE id = #{self.id};")
+  end
+
+  define_method(:update_describe) do |attributes|
+    @id = self.id
+    @describe = attributes.fetch(:describe)
+    DB.exec("UPDATE clients SET describe = '#{@describe}' WHERE id = #{@id};")
+  end
+
+  define_method(:update) do |attributes|
+    @id = self.id
+    @name = attributes.fetch(:name)
+    DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{@id};")
+    end
+
 end
