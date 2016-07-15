@@ -1,12 +1,13 @@
 <div class="row">
   <div class="col-sm-5">
     <h3>About <%= @stylist.name %></h3>
-    <h3>Photo goes here</h3>
+
     <hr>
 
     <form class="form-group" action="/stylist/<%= @stylist.id() %>" method="post">
       <input class="form-control" type="hidden" name="_method" value="delete">
       <button class="btn btn-danger" type="submit">Delete <%= @stylist.name() %></button>
+      <br>
       <p><em>
         Deleting a stylist will also delete all of their clients
       </em></p>

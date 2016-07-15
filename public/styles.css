@@ -15,6 +15,21 @@ label {
 }
 
 .jumbotron {
-  height: 100px;
+  height: 200px;
   padding-top: 5px;
+  background-image: url(img/scissors.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;;
+}
+
+h4 {
+  color: white;
+}
+
+h1 a {
+  color: white;
+}
+
+h1 a:hover {
+  color: #f7f7f7;
 }

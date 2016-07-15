@@ -29,15 +29,7 @@
     </ul>
     <% else %>
     <p><b>Ready to add clients?</b></p>
-      <p>Clients won't appear until they have been assigned to stylists</p>
-      <p><b>To assign a stylist to a client:</b></p>
-      <ul>
-        <li>- Add a stylist name to the form on the left</li>
-        <li>- Click 'Add stylist'</li>
-        <li>- Return to the dashboard</li>
-        <li>- click on a stylist's name</li>
-        <li>- Use the form to assign clients</li>
-      </ul>
+      <p>Use the form below to add one.</p>
     <% end %>
   </div>
 
@@ -48,7 +40,7 @@
 <!-- SECOND ROW -->
 <div class="row">
   <div class="col-sm-6">
-    <h4>Add a stylist:</h4>
+    <h3>Add a stylist:</h3>
     <form class="form-group" action="/stylist_success" method="post">
       <label for="stylist_name">Name</label>
       <input class="form-control" type="text" name="stylist_name">
@@ -56,7 +48,7 @@
     </form>
   </div>
   <div class="col-sm-6">
-    <h4>Add a client</h4>
+    <h3>Add a client</h3>
     <form class="form-group" action="/client_success/home" method="post">
       <label for="name">Name</label>
       <input class="form-control" type="text" name="name">
