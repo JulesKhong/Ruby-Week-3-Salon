@@ -1,3 +1,4 @@
+require('client')
 require('pg')
 require('pry')
 require('rspec')

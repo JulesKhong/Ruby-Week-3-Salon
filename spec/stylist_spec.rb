@@ -51,5 +51,17 @@ describe(Stylist) do
       expect(stylist.name).to(eq("Sona"))
     end
   end
+  # 
+  # describe('#clients') do
+  #   it("returns a list of clients for a particular stylist") do
+  #     stylist = Stylist.new({:id => nil, :name => "Venice"})
+  #     stylist.save
+  #     client = Client.new({:id => nil, :name => "Rose", :describe => "Rose is four and likes Mickey Mouse" :stylist_id => stylist.id})
+  #     client.save
+  #     client_two = Client.new({:id => nil, :name => "Montra", :describe => "Does not want short hair", :stylist_id => stylist.id })
+  #     client_two.save()
+  #     expect(stylist.clients).to(eq([client, client_two]))
+  #   end
+  # end
 
 end
