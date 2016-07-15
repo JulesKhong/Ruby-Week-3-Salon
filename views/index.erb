@@ -21,6 +21,24 @@
 
     <h3>Clients</h3>
 
+    <% if @clients.any?() %>
+    <ul>
+      <% @clients.each do |client| %>
+      <li><%= client.name %></li>
+      <% end %>
+    </ul>
+    <% else %>
+    <p><b>Ready to add clients?</b></p>
+      <p>Clients won't appear until they have been assigned to stylists</p>
+      <p><b>To assign a stylist to a client:</b></p>
+      <ul>
+        <li>- Add a stylist name to the form on the left</li>
+        <li>- Click 'Add stylist'</li>
+        <li>- Return to the dashboard</li>
+        <li>- click on a stylist's name</li>
+        <li>- Use the form to assign clients</li>
+      </ul>
+    <% end %>
   </div>
 
 
@@ -38,7 +56,28 @@
     </form>
   </div>
   <div class="col-sm-5">
+    <h4>Add a client</h4>
+    <form class="form-group" action="/client_success/home" method="post">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name">
+      <label for="notes">Notes</label>
+      <input class="form-control" type="text" name="notes">
+      <label for="stylists">Stylist</label>
+      <select class="form-control" name="stylists">
+
+        <% if @stylists.any?() %>
+            <% @stylists.each do |stylist| %>
+            <option><%= stylist.name %></option>
+            <% end %>
+        <% else %>
+        <p>
+          uh oh! No stylists have been added. Use the form on the left to add stylists before adding clients.
+        </p>
+        <% end %>
 
 
+      </select>
+      <button class="btn btn-primary" type="submit">Add client</button>
+    </form>
   </div>
 </div>

@@ -37,3 +37,45 @@ describe('adding a client to a stylist',{:type => :feature}) do
     expect(page).to have_content("Mike Vannett now has a stylist")
   end
 end
+
+describe('show the list of clients on the homepage',{:type => :feature}) do
+  it('lists all clients on the homepage') do
+    visit('/')
+    fill_in('stylist_name', :with => "Sam")
+    click_button('Add stylist')
+    click_link('Return to dashboard')
+    click_link('Sam')
+    fill_in("name", :with => "Sally Joe")
+    fill_in("notes", :with => "wonderful curly hair")
+    click_button('Assign client to Sam')
+    click_link('Return to dashboard')
+    expect(page).to have_content("Sally Joe")
+  end
+end
+
+describe('deleting stylists',{:type => :feature}) do
+  it('deletes a stylist from the database along with their clients') do
+    visit('/')
+    fill_in('stylist_name', :with => "Sam")
+    click_button('Add stylist')
+    click_link('Return to dashboard')
+    click_link('Sam')
+    click_button('Delete Sam')
+    expect(page).to have_no_content('Sam')
+  end
+end
+
+# describe('add clients from the dashboard',{:type => :feature}) do
+#   it('shows all clients on the homepage') do
+#     visit('/')
+#     fill_in('stylist_name',  :with => "Sam")
+#     click_button('Add stylist')
+#     click_link('Return to dashboard')
+#     fill_in('client_name', :with => "George")
+#     fill_in('notes', :with => "uses black hair dye")
+#     select('Sam' :from => 'stylists')
+#     click_button('Add client')
+#     click_link('Return to dashboard')
+#     expect(page).to have_content("George")
+#   end
+# end

@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm-4">
+      <h3>Are you sure you want to permanently delete<%= @name %>?</h3>
+      <h2>Deleting <%= @name %> will also delete all of their clients</h2>
+      <form class="form-group" action="/stylist/<%= @stylist.id() %>" method="post">
+        <input class="form-control" type="hidden" name="_method" value="delete">
+        <button class="btn btn-danger" type="submit">Delete <%= @stylist.name() %></button>
+      </form>
+
+      <a href='/'>Return to dashboard</a>
+    </div>
+</div>
