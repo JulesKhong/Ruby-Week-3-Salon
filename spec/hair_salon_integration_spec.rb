@@ -65,17 +65,17 @@ describe('deleting stylists',{:type => :feature}) do
   end
 end
 
-# describe('add clients from the dashboard',{:type => :feature}) do
-#   it('shows all clients on the homepage') do
-#     visit('/')
-#     fill_in('stylist_name',  :with => "Sam")
-#     click_button('Add stylist')
-#     click_link('Return to dashboard')
-#     fill_in('client_name', :with => "George")
-#     fill_in('notes', :with => "uses black hair dye")
-#     select('Sam' :from => 'stylists')
-#     click_button('Add client')
-#     click_link('Return to dashboard')
-#     expect(page).to have_content("George")
-#   end
-# end
+describe('add clients from the dashboard',{:type => :feature}) do
+  it('shows all clients on the homepage') do
+    visit('/')
+    fill_in('stylist_name',  :with => "Sam")
+    click_button('Add stylist')
+    click_link('Return to dashboard')
+    fill_in('name', :with => "George")
+    fill_in('notes', :with => "uses black hair dye")
+    select('Sam', :from => 'stylists')
+    click_button('Add client')
+    click_link('Return to dashboard')
+    expect(page).to have_content("George")
+  end
+end
