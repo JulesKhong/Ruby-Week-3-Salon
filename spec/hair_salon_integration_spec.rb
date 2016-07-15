@@ -23,3 +23,17 @@ describe('viewing details about a stylist',{:type => :feature}) do
     expect(page).to have_content('About Montra')
   end
 end
+
+describe('adding a client to a stylist',{:type => :feature}) do
+  it('adds an add form on the stylist page, and shows a success page when clients are added') do
+    visit('/')
+    fill_in('stylist_name', :with => "Montra")
+    click_button('Add stylist')
+    click_link('Return to dashboard')
+    click_link('Montra')
+    fill_in('name', :with => "Mike Vannett")
+    fill_in('notes', :with => "Needs reminders to come in")
+    click_button('Assign client to Montra')
+    expect(page).to have_content("Mike Vannett now has a stylist")
+  end
+end

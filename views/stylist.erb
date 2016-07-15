@@ -16,6 +16,19 @@
       </p>
       <% end %>
 
+      <hr>
+
+    <h3>Add a client</h3>
+    <form class="form-group" action="/client_success" method="post">
+      <input id="stylist_id" type="hidden" name="stylist_id" value="<%= @stylist.id %>">
+      <label for="name">Name</label>
+      <input class="form-control" type="text" name="name">
+      <label for="notes">Notes</label>
+      <input class="form-control" type="text" name="notes">
+      <button class="btn btn-primary" type="submit">Assign client to <%= @stylist.name %></button>
+    </form>
+
+
     </div>
 <!-- COLUMN TWO -->
     <div class="col-sm-5">
