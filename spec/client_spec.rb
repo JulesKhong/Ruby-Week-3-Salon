@@ -70,5 +70,15 @@ describe(Client) do
     end
   end
 
+  describe('#stylist') do
+    it("returns the stylist that works with that client") do
+      stylist = Stylist.new({:id => nil, :name => "Chaucer"})
+      stylist.save
+      client = Client.new({:id => nil, :name => "Shalane", :describe => "Free spirit", :stylist_id => stylist.id })
+      client.save
+      expect((client.stylist).name).to(eq("Chaucer"))
+    end
+  end
+
 
 end
