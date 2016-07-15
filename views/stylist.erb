@@ -1,0 +1,29 @@
+<div class="row">
+<!-- COLUMN ONE -->
+    <div class="col-sm-5">
+      <h3>About <%= @stylist.name %></h3>
+
+      <% if @clients.any?() %>
+        <ul>
+          <% @clients.each do |client| %>
+          <li><%= client.name %></li>
+          <li><%= client.describe %></li>
+          <% end %>
+        </ul>
+      <% else %>
+      <p>
+        <%= @stylist.name %> has no clients. Use the form below to add some!
+      </p>
+      <% end %>
+
+    </div>
+<!-- COLUMN TWO -->
+    <div class="col-sm-5">
+
+    <h3>Photo goes here</h3>
+
+    </div>
+
+
+</div>
+<hr>

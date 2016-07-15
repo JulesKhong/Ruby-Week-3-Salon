@@ -6,7 +6,7 @@
       <% if @stylists.any?() %>
         <ul>
           <% @stylists.each do |stylist| %>
-          <li><%= stylist.name %></li>
+          <li><a href="/stylist/<%= stylist.id %>"><%= stylist.name %></a></li>
           <% end %>
         </ul>
       <% else %>

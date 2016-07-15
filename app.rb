@@ -12,6 +12,13 @@ get('/') do
   erb(:index)
 end
 
+get('/stylist/:id') do
+  @stylist = Stylist.find(params.fetch('id').to_i)
+  @clients = Client.all()
+  # @myclients = @stylist.clients
+  erb(:stylist)
+end
+
 post('/stylist_success') do
   @stylist = params.fetch('stylist_name')
   stylist = Stylist.new({:id => nil, :name => @stylist})
