@@ -4,8 +4,8 @@ class Stylist
   attr_reader(:id, :name)
 
   define_method(:initialize) do |attributes|
-    @id = attributes.fetch[:id]
-    @name = attributes.fech(:name)
+    @id = attributes[:id]
+    @name = attributes.fetch(:name)
   end
 
   define_singleton_method(:all) do
@@ -17,6 +17,10 @@ class Stylist
       stylists.push(Stylist.new({:id => id, :name => name}))
     end
     stylists
+  end
+
+  define_method(:==) do |another_stylist|
+    self.name.==(another_stylist.name).&(self.id.==(another_stylist.id))
   end
 
 end
