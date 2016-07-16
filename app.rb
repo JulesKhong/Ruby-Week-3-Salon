@@ -83,11 +83,12 @@ post('/client_success') do
   erb(:client_success)
 end
 
-post('/client_success/home') do
+post('/client_home') do
   @name = params.fetch('name')
   @describe = params.fetch('notes')
-  @stylist = Stylist.find_name(params.fetch('stylists'))
-  @client = Client.new({:id => nil, :name => @name, :describe => @describe, :stylist_id => @stylist.id})
+  @stylist_id = (Stylist.find_name(params.fetch('stylists'))).id
+  @client = Client.new({:id => nil, :name => @name, :describe => @describe, :stylist_id => @stylist_id})
   @client.save
+  @clients = Client.all
   erb(:client_success)
 end
