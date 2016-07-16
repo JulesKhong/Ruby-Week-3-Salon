@@ -1,45 +1,16 @@
+<!-- ROW ONE -->
 <div class="row">
+  <!-- COLUMN ONE -->
   <div class="col-sm-5">
-    <h3>About <%= @stylist.name %></h3>
-
-    <hr>
-
-    <form class="form-group" action="/stylist/<%= @stylist.id() %>" method="post">
-      <input class="form-control" type="hidden" name="_method" value="delete">
-      <button class="btn btn-danger" type="submit">Delete <%= @stylist.name() %></button>
-      <br>
-      <p><em>
-        Deleting a stylist will also delete all of their clients
-      </em></p>
-    </form>
-
+    <h3>Stylist profile: <%= @stylist.name %></h3>
   </div>
-
-<!-- COLUMN TWO -->
-
-    <div class="col-sm-5">
-      <% if @clients.any?() %>
-      <h3>Clients</h3>
-        <ul>
-          <% @clients.each do |client| %>
-          <hr>
-          <li><%= client.name %></li>
-          <li><%= client.describe %></li>
-
-          <form class="form-group" action="/client/<%= client.id() %>" method="post">
-            <input class="form-control" type="hidden" name="_method" value="delete">
-            <button class="btn btn-danger" type="submit">Delete <%= client.name() %></button>
-          </form>
-          <% end %>
-        </ul>
-      <% else %>
-      <p>
-        <%= @stylist.name %> has no clients. Use the form below to add some!
-      </p>
-      <% end %>
-
-      <hr>
-
+</div>
+<hr>
+<!-- ROW TWO -->
+<div class="row">
+<!-- COLUMN ONE -->
+  <div class="col-sm-5">
+<!-- ADD A CLIENT -->
     <h3>Add a client</h3>
     <form class="form-group" action="/client_success" method="post">
       <input id="stylist_id" type="hidden" name="stylist_id" value="<%= @stylist.id %>">
@@ -49,13 +20,45 @@
       <input class="form-control" type="text" name="notes">
       <button class="btn btn-primary" type="submit">Assign client to <%= @stylist.name %></button>
     </form>
-
-    <a href='/'>Return to dashboard</a>
-
-    </div>
+  </div>
 <!-- COLUMN TWO -->
+  <div class="col-sm-5">
+    <h3>Clients</h3>
+    <% if @clients.any?() %>
+      <ul>
+        <% @clients.each do |client| %>
+        <hr>
+        <li><%= client.name %></li>
+        <li><%= client.describe %></li>
 
-
-
+        <form class="form-group" action="/client/<%= client.id() %>" method="post">
+          <input class="form-control" type="hidden" name="_method" value="delete">
+          <button class="btn btn-danger" type="submit">Delete <%= client.name() %></button>
+        </form>
+        <% end %>
+      </ul>
+    <% else %>
+    <p>
+      <%= @stylist.name %> has no clients. Use the form to the left to add some!
+    </p>
+    <% end %>
+    </form>
+  </div>
+</div>
+<hr>
+<!-- ROW 3 -->
+<div class="row">
+  <div class="col-sm-5">
+    <a href='/'>Return to dashboard</a>
+  </div>
+  <div class="col-sm-5">
+  <!-- DELETE STYLIST -->
+    <p><em>
+      Deleting a stylist will also delete all of their clients
+    </em></p>
+    <form class="form-group" action="/stylist/<%= @stylist.id() %>" method="post">
+      <input class="form-control" type="hidden" name="_method" value="delete">
+      <button class="btn btn-danger" type="submit">Delete <%= @stylist.name() %></button>
+  </div>
 </div>
 <hr>

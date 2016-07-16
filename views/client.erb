@@ -1,0 +1,46 @@
+<!-- ROW ONE -->
+<div class="row">
+<!-- COLUMN ONE -->
+  <div class="col-sm-5">
+    <h3>Client profile: <%= @client.name %></h3>
+  </div>
+</div>
+<hr>
+
+<!-- ROW TWO -->
+<div class="row">
+  <!-- COLUMN ONE -->
+  <div class="col-sm-5">
+    <h3>Update info</h3>
+    <form class="form-group" action="/client/<%= @client.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <label for="update_notes">Update notes</label>
+      <input class="form-control" type="text" name="update_notes">
+      <button class="btn btn-primary" type="submit">Save update</button>
+    </form>
+  </div>
+<!-- COLUMN TWO -->
+  <div class="col-sm-5">
+    <h3>Details</h3>
+    <h4>Stylist: <a href="/stylist/<%= @stylist.id %>"><%= @stylist.name %></a></h4>
+    <h4>Notes: <%= @client.describe %></h4>
+    <p><em>
+      Deleting a client will remove them permanently from the database
+    </em></p>
+  </div>
+</div>
+<hr>
+
+<!-- ROW THREE -->
+<div class="row">
+  <div class="col-sm-5">
+    <a href='/'>Return to dashboard</a>
+  </div>
+  <div class="col-sm-5">
+    <!-- DELETE CLIENT -->
+    <form class="form-group" action="/client/<%= @client.id() %>" method="post">
+      <input class="form-control" type="hidden" name="_method" value="delete">
+      <button class="btn btn-danger" type="submit">Delete <%= @client.name() %></button>
+    </form>
+  </div>
+</div>

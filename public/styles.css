@@ -1,13 +1,10 @@
 ul li {
   list-style-type: none;
+  margin-left: 0;
 }
 
 .btn {
   margin-top: 10px;
-}
-
-.btn btn-primary {
-  margin-top: 20px;
 }
 
 label {
@@ -15,21 +12,19 @@ label {
 }
 
 .jumbotron {
-  height: 200px;
+  height: 150px;
   padding-top: 5px;
-  background-image: url(img/scissors.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;;
 }
 
 h4 {
-  color: white;
+  color: #777777;
 }
 
 h1 a {
-  color: white;
+  color: #777777;
 }
 
 h1 a:hover {
-  color: #f7f7f7;
+  color: #888888;
+  text-decoration: none;
 }

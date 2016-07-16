@@ -1,11 +1,11 @@
 # NW Dictionary
-A site to read and share NW lingo, for the week 2 code review at Epicodus, July 8, 2016
+A salon website, for the week 3 code review at Epicodus, July 15, 2016
 
 By Julia Dickey
 
 ## Description
 
-This site allows a salon owner to view, add, update and delte stylists and clients.
+This site allows a salon owner to view, add, update and delete stylists and clients.
 
 ## Setup/Installation Requirements
 
@@ -22,7 +22,7 @@ CREATE DATABASE hair_salon_test WITH TEMPLATE hair_salon;
 
 ## Known Bugs
 
-The backend logic passes all spec tests, but the page will not load on or pass integration tests.
+There are no known bugs. Please contact Julia if any arise.
 
 ## Support and contact details
 
